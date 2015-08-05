@@ -2,7 +2,7 @@
 "      Language: vim script
 "    Maintainer: Yichao Zhou (broken.zhou AT gmail dot com)
 "       Version: 1.3
-"   Description: 
+"   Description:
 "       This is a simple script to autosave cursor position and fold
 "       information using vim's mkview.  Although you can easily do this job by
 "       just add serveral line to {.,_}vimrc, write a script plugin can make it
@@ -57,6 +57,6 @@ endfunction
 augroup AutoView
     autocmd!
     " Autosave & Load Views.
-    autocmd BufWritePre,BufWinLeave ?* if MakeViewCheck() | silent! mkview | endif
+    autocmd BufLeave,BufWritePre,BufWinLeave ?* if MakeViewCheck() | silent! mkview | endif
     autocmd BufWinEnter ?* if MakeViewCheck() | silent! loadview | endif
 augroup END
